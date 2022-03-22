@@ -8,34 +8,24 @@ public class CurrencyTest {
 
     @Test
     public void Multiply(){
-        Dollar sut = new Dollar(5);
-        assertEquals(sut.Times(2), new Dollar(10));
+        assertEquals(Money.Dollar(5).Times(2), Money.Dollar(10));
     }
 
     @Test
     public void Equality(){
-        assertEquals(new Dollar(5), new Dollar(5));
-        assertNotEquals(new Dollar(5), new Dollar(6));
-
-        assertEquals(new Euro(5), new Euro(5));
-        assertNotEquals(new Euro(5), new Euro(6));
+        assertEquals(Money.Euro(5), Money.Euro(5));
+        assertEquals(Money.Dollar(5), Money.Dollar(5));
+        assertNotEquals(Money.Dollar(3), Money.Dollar(6));
     }
 
     @Test
     public void Inequality(){
-        assertNotEquals( new Dollar(5), new Euro(5));
+        assertNotEquals( Money.Dollar(2), Money.Euro(2));
     }
 
     @Test
-    public void MultiplyEuros(){
-        Euro sut = new Euro(5);
-        assertEquals(sut.Times(2), new Euro(10));
+    public void FactoryMethods()
+    {
+        assertEquals( Money.Dollar(1).Times(2), Money.Dollar(2));
     }
-
-    @Test
-    public void METHOD(){
-        Money sut = new Dollar(10);
-        assertNotEquals(sut, new Euro(10));
-    }
-
 }
